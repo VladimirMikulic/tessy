@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Monetization Demo</title>
+
+  <!-- replace with your monetization id -->
+  <meta name="monetization" content="$coil.xrptipbot.com/JABJLDXNSje7h_bY26_6wg">
+
+</head>
+
+<body>
+
+  <h1>Simple Web Monetization Demo</h1>
+
+  <h2>Monetization Events</h2>
+
+  <!-- container to display monetization events -->
+  <pre id="container">
+</pre>
+
+  <!-- error messages -->
+  <div id="error-no-monetization" class="error">
+    Note: In order to see any events here, you need to have an extension installed from a web monetization provider,
+    like <a href="https://coil.com">coil.com</a>.
+    (<a href="https://chrome.google.com/webstore/detail/coil/locbifcbeldmnphbgkdigjmkbfkhbnca">chrome</a> <a
+      href="https://addons.mozilla.org/en-US/firefox/addon/coil/">firefox</a>)
+  </div>
+  <div id="error-wrong-protocol" class="error">
+    Error: This demo must be <a
+      href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server">run from a
+      server</a>.
+  </div>
+  <div id="error-timeout" class="error">
+    Warning: No monetization events occurred after six seconds. This probably indicates that you have a web monetization
+    extension, but no active account. Get one at <a href="https://coil.com">coil.com</a>.
+  </div>
+
+
+</body>
+
+<script>
+
+  (function () {
+
+    var monetizationStartEventOccurred = false;
+
+    // this is some extra error detection that you probably won't need in your implementation.
+    if (window.location.protocol.indexOf('http') !== 0) {
+      document.getElementById('error-wrong-protocol').style.display = 'block';
+    }
+    else if (!document.monetization) {
+      document.getElementById('error-no-monetization').style.display = 'block';
+    }
+    else {
+      setTimeout(function () {
+        if (!monetizationStartEventOccurred) {
+          document.getElementById('error-timeout').style.display = 'block';
+        }
+      }, 6000);
+    }
+
+
+    // check if monetization is implemented
+    if (document.monetization) {
+
+      //monetization start event.
+      document.monetization.addEventListener('monetizationstart', function (event) {
+        monetizationStartEventOccurred = true;
+        container.innerText = container.innerText + 'monetizationstarted: \n' +
+          JSON.stringify(event.detail, null, 2) + '\n\n';
+        console.log('monetizationstarted', event);
+      });
+
+      //monetization progress event.
+      document.monetization.addEventListener('monetizationprogress', function (event) {
+        container.innerText = container.innerText + 'monetizationprogress: \n' +
+          JSON.stringify(event.detail, null, 2) + '\n\n';
+        console.log('monetizationprogress', event);
+      });
+    }
+
+  })();
+</script>
+
+<style>
+  body {
+    font-family: sans-serif;
+  }
+
+  #container {
+    background-color: lightgreen;
+    padding: 10px;
+  }
+
+  .error {
+    display: none;
+    background-color: pink;
+    padding: 10px;
+  }
+</style>
+
+</html>

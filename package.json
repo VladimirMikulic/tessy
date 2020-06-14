@@ -1,0 +1,40 @@
+{
+  "name": "tessy",
+  "version": "1.0.1",
+  "description": "Advanced Web Monetization testing library with powerful declarative API.",
+  "main": "src/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^4.7.0",
+    "http-server": "^0.12.3",
+    "jest": "^26.0.1",
+    "parcel": "^1.12.4",
+    "puppeteer": "^3.3.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  },
+  "scripts": {
+    "test": "jest",
+    "build:monetization": "parcel build scripts/monetization.js --no-source-maps --out-file monetization-browser.js --out-dir scripts"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "cypress"
+    ]
+  },
+  "files": [
+    "src/*",
+    "api/*",
+    "scripts/*"
+  ],
+  "keywords": [
+    "cypress",
+    "puppeteer",
+    "selenium",
+    "plugin",
+    "library",
+    "testing",
+    "web monetization"
+  ],
+  "author": "Vladimir Mikulic <vladimir.mikulic2@gmail.com>",
+  "license": "MIT"
+}
