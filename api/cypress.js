@@ -10,6 +10,13 @@ function initVisitOptions(options) {
   return visitOptions;
 }
 
+/**
+ * Visits a remote URL with Web Monetization enabled
+ * @param {String} url URL to visit
+ * @param {Object} visitOptions options to Cypress's `visit` method
+ * @param {Object} options options to Tessy
+ * @returns {Window} yields remote page's `window` object
+ */
 function visitMonetized(url, visitOptions = {}, options = {}) {
   visitOptions = initVisitOptions(visitOptions);
 
@@ -31,6 +38,10 @@ function visitMonetized(url, visitOptions = {}, options = {}) {
   });
 }
 
+/**
+ * Attaches `visitMonetized` method on Cypress's instance
+ * @param {Object} cy Cypress instance
+ */
 module.exports = cy => {
   cy.visitMonetized = visitMonetized;
 };
