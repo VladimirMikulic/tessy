@@ -1,4 +1,10 @@
+<img src="./logo.svg" width="128px" height="128px" align="left">
+
 # Tessy
+
+Advanced Web Monetization testing library with powerful declarative API.
+
+<br/>
 
 ![Version](https://img.shields.io/npm/v/tessy)
 ![Cypress](https://img.shields.io/badge/Cypress-Yes-success)
@@ -7,8 +13,6 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/VladimirMikulic/tessy)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](#)
 [![Twitter: VladoDev](https://img.shields.io/twitter/follow/VladoDev.svg?style=social)](https://twitter.com/VladoDev)
-
-> 🧪 Advanced Web Monetization testing library with powerful declarative API.
 
 ## Introduction
 
@@ -243,6 +247,10 @@ npm test
 ## :handshake: Contributing
 
 Contributions, issues and feature requests are welcome!
+
+## 🍻 Credits
+
+Logo design is provided by [Freepik](http://www.freepik.com). ❤️
 
 ## :pencil: License
 
