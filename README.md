@@ -201,7 +201,7 @@ document.onreadystatechange = function () {
       assetCode: "AUD",
       // The scale of the amount (default: 9)
       assetScale: 5,
-      // Pointer to the test wallet (default: web monetization meta tag on the page)
+      // Pointer to the test wallet: (default: web monetization meta tag on the page)
       paymentPointer "$coil.xrptipbot.com/LKAS89_AFOI82"
   }
   ```
